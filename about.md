@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I am a computer programmer and computer science student living in New Zealand.
+My name is Brenton Morris, I am a computer programmer and computer science student living in New Zealand.
 
 ### More Information
 
