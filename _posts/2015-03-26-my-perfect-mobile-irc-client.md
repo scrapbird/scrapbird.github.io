@@ -37,6 +37,8 @@ sudo chown ircuser:users /home/ircuser
 
 # copy our irssi config files over
 sudo cp -R /home/YOURACCOUNT/.irssi /home/ircuser/.irssi
+# give ircuser access to the files
+sudo chown -R ircuser:users /home/ircuser/.irssi
 {% endhighlight %}
 
 When we ssh into our server using this account we don't want to have to run irssi ourselves, so lets change the users shell to be irssi:
