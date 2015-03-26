@@ -15,6 +15,7 @@ When using this method we get a couple of benefits for free:
 * Never miss a message using ZNC
 * Your irc admin will not know your IP address
 * Uses your already existing setup
+* You can set this up for other users without having to give them shell access to your server
 
 Now I'm sure there are ways of compiling irssi for ARM and setting it up correctly but I already had my trusty VPS running ZNC and my preexisting irssi config so I thought, "why not use that?"
 
