@@ -24,7 +24,7 @@ int main(int i,char *a[])
 
 With the following simple command:
 
-{% highlight bash %}
+{% highlight plaintext %}
 ➜  ~ gcc --version
 gcc (Debian 4.7.2-5) 4.7.2
 Copyright (C) 2012 Free Software Foundation, Inc.
@@ -75,7 +75,7 @@ Then enter `aaa` to analyze the file again and then seek to our obj.shellcode fl
 
 Like in vim we can enter a command mode without exiting visual mode in r2 by pressing `:`. From here we can execute normal r2 commands without needing to jump back to the r2 shell. Because we are responsible people and we never run code that we haven't read yet we will set a break point at the instruction to call out to the decoded instructions pointed to by `rsp` at address **0x006008bd** by entering the following command:
 
-{% highlight bash %}
+{% highlight plaintext %}
 db 0x006008bd
 {% endhighlight %}
 
@@ -100,3 +100,5 @@ From this we can see that this shellcode will simply start a shell, by launching
 ![values of stack and registers](/images/2016-06-22/LHmfBE4.png)
 
 I hope this will be of some help to someone as a simple intro to using radare2 as a debugger. As someone who lives in the terminal as much as possible I am loving using r2, but hopefully this will convince others that it is actually not any harder to use than a visual decompiler / debugger.
+
+PS: I would like some feedback as to what people would prefer to see used for the examples in my articles. Would you prefer the text be placed in a plaintext code block instead of images? I am aware that some people hate posts with too many images and I've been meaning to step up my game and actually start writing more posts. You can either let me know in the comment section or on [twitter](https://twitter.com/_scrapbird) or email me (email can be found in my [about](/about) page).
