@@ -18,7 +18,7 @@ avatar: https://avatars0.githubusercontent.com/u/2077061
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:
+  email: brenton.smorris@gmail.com
   facebook:
   flickr:
   github: scrapbird
@@ -26,7 +26,7 @@ footer-links:
   linkedin:
   pinterest:
   rss: # just type anything here for a working RSS icon, make sure you set the "url" above!
-  twitter:
+  twitter: _scrapbird
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
 
 # Your disqus shortname, entering this will enable commenting on posts
