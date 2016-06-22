@@ -9,6 +9,7 @@ My name is Brenton Morris, I am a computer programmer and security enthusiast li
 ### More Information
 
 I work in DevOps and back end development. I also do security stuff.
+
 DevOps, web development, linux, golang and anything security or malware related.
 
 ### Contact me
