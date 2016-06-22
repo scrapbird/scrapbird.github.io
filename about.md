@@ -14,3 +14,4 @@ Web development, android, linux and anything golang.
 ### Contact me
 
 [brenton.smorris@gmail.com](mailto:brenton.smorris@gmail.com)
+[@_scrapbird](https://twitter.com/_scrapbird)
