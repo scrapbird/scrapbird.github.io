@@ -95,7 +95,7 @@ Lets place a break point before the syscall and take a look at the values pointe
 
 <img src="/images/2016-06-22/3Tfkit3.png" width="340" alt="value of rdi and rsi before the syscall" />
 
-From this we can see that this shellcode will simply start a shell, by launching `/bin/sh`. But the argument is just the string `Q`, if we take a look at the stack we can see that there is a `-i` sitting there exactly 16 bytes away, which would force the shell to spawn in interactive mode. Perhaps the author made a mistake and is passing the wrong value? This won't affect the shell from launching so it may have been easy to miss.
+From this we can see that this shellcode will simply start a shell, by launching `/bin/sh`. But the argument is just the string `Q`, if we take a look at the stack we can see that there is a `-i` sitting there exactly 16 bytes away, which would force the shell to spawn in interactive mode. Perhaps the author made a mistake and is passing the wrong value? This won't stop the shell from launching so it may have been easy to miss.
 
 ![values of stack and registers](/images/2016-06-22/LHmfBE4.png)
 
