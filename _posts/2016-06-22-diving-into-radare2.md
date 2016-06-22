@@ -39,7 +39,7 @@ Then open it with r2:
 
 <img src="/images/2016-06-22/561CySN.png" width="340" alt="radare 2's prompt" />
 
-As can be seen by the r2 prompt, we at currently positioned at offset **0x004003a0**. Lets analyze the whole file and seek to the main subroutine:
+As can be seen by the r2 prompt, we are currently positioned at offset **0x004003a0**. Lets analyze the whole file and seek to the main subroutine:
 
 ![main subroutine](/images/2016-06-22/9A4n0rn.png)
 
