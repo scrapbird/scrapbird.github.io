@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-My name is Brenton Morris, I am a computer programmer and computer science student living in New Zealand.
+My name is Brenton Morris, I am a computer programmer and security enthusiast living in New Zealand.
 
 ### More Information
 
-I am in my third year of study at the University of Auckland doing my BSc with a computer science major.
-Web development, android, linux and anything golang.
+I work in DevOps and back end development, I also do and security stuff.
+DevOps, web development, linux, golang and anything security or malware related.
 
 ### Contact me
 
