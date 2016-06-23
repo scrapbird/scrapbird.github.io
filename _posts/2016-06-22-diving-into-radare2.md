@@ -43,15 +43,15 @@ Then open it with r2:
 [0x7fef42cacaf0]>
 {% endhighlight %}
 
-As can be seen by the r2 prompt, we are currently positioned at offset **0x7fef42cacaf0**. Lets analyze the whole file and seek to the main subroutine:
+As can be seen by the r2 prompt, we are currently positioned at offset **0x7fef42cacaf0**. Lets analyse the whole file and seek to the main subroutine:
 
 {% highlight nasm %}
 [0x7fef42cacaf0]> aaa
-[x] Analyze all flags starting with sym. and entry0 (aa)
+[x] Analyse all flags starting with sym. and entry0 (aa)
 [Cannot determine xref search boundariesr references (aar)
-[x] Analyze len bytes of instructions for references (aar)
+[x] Analyse len bytes of instructions for references (aar)
 [Oops invalid rangen calls (aac)
-[x] Analyze function calls (aac)
+[x] Analyse function calls (aac)
 [ ] [*] Use -AA or aaaa to perform additional experimental analysis.
 [x] Constructing a function name for fcn.* and sym.func.* functions (aan))
 [0x7fef42cacaf0]> s main
@@ -74,7 +74,7 @@ As can be seen by the r2 prompt, we are currently positioned at offset **0x7fef4
 [0x004004ac]>
 {% endhighlight %}
 
-We can see that r2 has analyzed our bin and named the shellcode subroutine for us and that the program is putting the address of the shellcode into `edx`, then calling it. Lets take a look at the shellcode now.
+We can see that r2 has analysed our bin and named the shellcode subroutine for us and that the program is putting the address of the shellcode into `edx`, then calling it. Lets take a look at the shellcode now.
 
 {% highlight nasm %}
 [0x004004ac]> s obj.shellcode
@@ -180,7 +180,7 @@ Next the code will zero out `rcx` by XORing it with itself and we set the counte
 
 At **0x006008bd** the execution is passed to the newly decoded instructions at `rsp` (the top of our stack). We need to somehow decode this ourselves so we can have a look at it, keeping in mind that the code was pushed onto the stack backwards.
 
-We could take advantage of r2's write mode by turning it on with `e io.cache = true` and then XOR the code with the `wox` command and analyze the output, but then we would also need to reverse the byte order (as the data is pushed onto the stack it will be backwards if we do it in the correct order) and we don't really want to complicate things. For this we should take advantage of r2's debugging abilities.
+We could take advantage of r2's write mode by turning it on with `e io.cache = true` and then XOR the code with the `wox` command and analyse the output, but then we would also need to reverse the byte order (as the data is pushed onto the stack it will be backwards if we do it in the correct order) and we don't really want to complicate things. For this we should take advantage of r2's debugging abilities.
 
 Lets quit r2 (press `q` until it closes completely) and reopen our shellcode in debug mode:
 
@@ -188,7 +188,7 @@ Lets quit r2 (press `q` until it closes completely) and reopen our shellcode in 
 r2 -d shellcode
 {% endhighlight %}
 
-Then enter `aaa` to analyze the file again and then seek to our obj.shellcode flag and go through the same process of defining that string as code from visual mode. We should now be looking at the same screen as before.
+Then enter `aaa` to analyse the file again and then seek to our obj.shellcode flag and go through the same process of defining that string as code from visual mode. We should now be looking at the same screen as before.
 
 Like in vim we can enter a command mode without exiting visual mode in r2 by pressing `:`. From here we can execute normal r2 commands without needing to jump back to the r2 shell. Because we are responsible people and we never run code that we haven't read yet we will set a break point at the instruction to call out to the decoded instructions pointed to by `rsp` at address **0x006008bd** by entering the following command:
 
@@ -228,7 +228,7 @@ Now this code is purposely confusing, first it zeros out both `eax` and `rdx` an
 int sys_execve(const char *filename, const char *argv[], const char *const envp[]);
 {% endhighlight %}
 
-The shellcode is calling `sys_execve`, which starts a process! This means that the code must be pointing `rdi` to the filename and `rsi` to the arguments for the call. Keep in mind that by convention the first element in the arguments to `sys_execve` should be the same as the filename. Lets take a look at the stack just before the call:
+The shellcode is calling `sys_execve`, which starts a process! This means that the code must be pointing `rdi` to the filename and `rsi` to the arguments for the call. Keep in mind that by convention the first element in the arguments to `sys_execve` should be the same as the filename. Lets place a break point before the syscall and take a look at the stack:
 
 {% highlight nasm %}
 [0x7ffc1b7d3c7c 325 ./shellcode]> ?0;f tmp;s.. @ rdi+61 # 0x7ffc1b7d3c7c
@@ -245,7 +245,7 @@ orax 0xffffffffffffffff   rax 0x0000003b           rbx 0x00000000
  rsp 0x7ffc1b7d3c17       rbp 0x7ffc1b7d3ca0       rip 0x7ffc1b7d3c86
 {% endhighlight %}
 
-Lets place a break point before the syscall and take a look at the parameters to see what is going to be called. Keep in mind that `rsi` is pointing to an array of strings and that we need to reverse the byte order to get the address it points to. First we will use `p8 8 @ rsi` to print 8 bytes at `rsi`, then we will reverse those bytes and print the value that they point to. Finaly we will print the second argument.
+Now lets take a closer look at the values themselves. Keep in mind that `rsi` is pointing to an array of strings and that we need to reverse the byte order to get the address it points to. First we will use `p8 8 @ rsi` to print 8 bytes at `rsi`, then we will reverse those bytes and print the value that they point to. Finally we will print the second argument.
 
 {% highlight nasm %}
 [0x7ffc1b7d3c7c]> psz @ rdi
