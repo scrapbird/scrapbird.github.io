@@ -83,7 +83,7 @@ Cannot find function at 0x006008a0
 [0x006008a0]>
 {% endhighlight %}
 
-Hmm.. looks like r2 hasn't recognized this part of the code as a function, lets jump into visual disassembly mode by executing `V` to get into visual mode and pressing `p` to cycle to the disassembly view.
+Hmm.. looks like r2 hasn't recognized this part of the code as a function, lets jump into visual disassembly mode by executing `V` to get into visual mode and pressing `p` to cycle to the disassembly view. You may need to jump back to this position by pressing `o` and then typing `obj.shell`, this is because when you first enter visual mode r2 will seek to the current instruction pointer.
 
 {% highlight nasm %}
 [0x006008a0 256 ./shellcode]> pd $r @ obj.shellcode
