@@ -240,7 +240,7 @@ Lets place a break point before the syscall and take a look at the values pointe
 [0x7ffc1b7d3c7c]>
 {% endhighlight %}
 
-From this we can see that this shellcode will simply start a shell, by launching `/bin/sh`. But the argument is just the string `?<}`, if we take a look at the stack we can see that there is a `-i` sitting there exactly 16 bytes away, which would force the shell to spawn in interactive mode. Perhaps the author made a mistake and is passing the wrong value? This won't stop the shell from launching so it may have been easy to miss.
+From this we can see that this shellcode will simply start a shell, by launching `/bin/sh`. But the argument is just the string `?<}`, if we take a look at the stack we can see that there is a `-i` sitting exactly 16 bytes away, which would force the shell to spawn in interactive mode, but instead it is getting passed a junk value. Perhaps the author made a mistake and is passing the wrong value? This won't stop the shell from launching so it may have been easy to miss.
 
 {% highlight nasm %}
 [0x7ffc1b7d3c7c 325 ./shellcode]> ?0;f tmp;s.. @ rdi+61 # 0x7ffc1b7d3c7c
