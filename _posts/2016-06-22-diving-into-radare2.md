@@ -228,19 +228,7 @@ Now this code is purposely confusing, first it zeros out both `eax` and `rdx` an
 int sys_execve(const char *filename, const char *argv[], const char *const envp[]);
 {% endhighlight %}
 
-So the values currently pointed to by `rdi` and `rsi` must be a filename and arguments for `sys_execve`, which starts a process!
-
-Lets place a break point before the syscall and take a look at the values pointed to by `rdi` and `rsi` to see what is going to be called:
-
-{% highlight nasm %}
-[0x7ffc1b7d3c7c]> psz @ rdi
-//bin/sh
-[0x7ffc1b7d3c7c]> psz @ rsi
-?<}
-[0x7ffc1b7d3c7c]>
-{% endhighlight %}
-
-From this we can see that this shellcode will simply start a shell, by launching `/bin/sh`. But the argument is just the string `?<}`.. If we take a look at the stack we can see that there is a `-i` sitting exactly 16 bytes away, which would force the shell to spawn in interactive mode, but instead it is getting passed a junk value. Perhaps the author made a mistake and is passing the wrong value? This won't stop the shell from launching so it may have been easy to miss.
+The shellcode is calling `sys_execve`, which starts a process! This means that the code must be pointing `rdi` to the filename and `rsi` to the arguments for the call. Keep in mind that by convention the first element in the arguments to `sys_execve` should be the same as the filename. Lets take a look at the stack just before the call:
 
 {% highlight nasm %}
 [0x7ffc1b7d3c7c 325 ./shellcode]> ?0;f tmp;s.. @ rdi+61 # 0x7ffc1b7d3c7c
@@ -257,6 +245,24 @@ orax 0xffffffffffffffff   rax 0x0000003b           rbx 0x00000000
  rsp 0x7ffc1b7d3c17       rbp 0x7ffc1b7d3ca0       rip 0x7ffc1b7d3c86
 {% endhighlight %}
 
+Lets place a break point before the syscall and take a look at the parameters to see what is going to be called. Keep in mind that `rsi` is pointing to an array of strings and that we need to reverse the byte order to get the address it points to. First we will use `p8 8 @ rsi` to print 8 bytes at `rsi`, then we will reverse those bytes and print the value that they point to. Finaly we will print the second argument.
+
+{% highlight nasm %}
+[0x7ffc1b7d3c7c]> psz @ rdi
+//bin/sh
+[0x7ffc1b7d3c7c]> p8 8 @ rsi
+3f3c7d1bfc7f0000
+[0x7ffc1b7d3c7c]> psz @ 0x00007ffc1b7d3c3f
+//bin/sh
+[0x7ffc1b7d3c7c]> psz @ 0x00007ffc1b7d3c2f
+-i
+[0x7ffc1b7d3c7c]>
+{% endhighlight %}
+
+From this we can see that this shellcode will simply start a shell, by launching `/bin/sh` with the argument `-i` (which will force the shell to launch in interactive mode).
+
 I hope this will be of some help to someone as a simple intro to using radare2 as a debugger. As someone who lives in the terminal as much as possible I am loving using r2, but hopefully this will convince others that it is actually not any harder to use than a visual decompiler / debugger.
 
 PS: I would like some feedback as to what people would prefer to see used for the examples in my articles. Would you prefer the text be placed in a plaintext code block instead of images? I am aware that some people hate posts with too many images and I've been meaning to step up my game and actually start writing more posts. You can either let me know in the comment section or on [twitter](https://twitter.com/_scrapbird) or email me (contact info can be found in the footer of this blog).
+
+2016-06-24: After a comment emailed to me I made an edit to the article where the call to sys_execve is explained. I got a bit wrong where I was using `rsi` to address the parameters as a string, but it is actually pointing to an array of strings. I will credit them here once they give permission to use their name.
