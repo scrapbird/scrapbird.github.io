@@ -3,7 +3,7 @@ layout: post
 title: Diving Into Radare2
 ---
 
-I've been improving my reverse engineering skills lately and decided to have a go at using [radare2](http://radare2.org) after a recommendation on an IRC channel I frequent. After reading through some blog posts and the [radare2 book](https://www.gitbook.com/book/radare/radare2book/details) (which is awesome, by the way) I decided to reverse a small shellcode using only r2 to see how easy it would be to get used to.
+I've been improving my reverse engineering skills lately and decided to have a go at using [radare2](http://www.radare.org/) after a recommendation on an IRC channel I frequent. After reading through some blog posts and the [radare2 book](https://www.gitbook.com/book/radare/radare2book/details) (which is awesome, by the way) I decided to reverse a small shellcode using only r2 to see how easy it would be to get used to.
 
 First I picked up a random shellcode from exploit-db and settled on [this one](https://exploit-db.com/exploits/39869/) which promised to contain some XOR encoding, which I figured would give me some semi-complicated operations to carry out using only r2. I would have to manually XOR some bytes and decompile the output to read the shellcode's final payload, at least.
 
