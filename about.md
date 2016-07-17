@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-My name is Brenton Morris, I am a computer programmer and security enthusiast living in New Zealand.
+My name is Brenton Morris, I am a computer programmer and security enthusiast living in Auckland, New Zealand.
 
 ### More Information
 
