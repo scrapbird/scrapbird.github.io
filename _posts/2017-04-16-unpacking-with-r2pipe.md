@@ -23,7 +23,7 @@ Because I dislike developing on Windows and much prefer a unix environment for r
 
 I started r2 with the following command:
 {% highlight batch %}
-radare2.exe -c "e http.sandbox = false; e http.bind = 0.0.0.0; =h& 1337" -d C:\Users\{REDACTED}\Desktop\49a48d4ff1b7973e55d5838f20107620ed808851231256bb94c85f6c80b8ebfc.bin
+radare2.exe -c "e http.sandbox = false; e http.bind = 0.0.0.0; =h& 1337" -d C:\Users\[REDACTED]\Desktop\49a48d4ff1b7973e55d5838f20107620ed808851231256bb94c85f6c80b8ebfc.bin
 pause
 {% endhighlight %}
 
