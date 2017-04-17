@@ -3,7 +3,7 @@ layout: post
 title: Generic Unpacking with r2pipe
 ---
 
-I've been playing around with `r2pipe` lately and thought I would do a bit of a write up on how I automated unpacking a Locky sample using r2 over `r2pipe`.
+I've been playing around with r2pipe lately and thought I would do a bit of a write up on how I automated unpacking a Locky sample using r2 over r2pipe.
 Basically Locky unpacks itself using `VirtualAlloc` to allocate a buffer for the unpacked file, followed by a call to `RtlDecompressBuffer` to decompress the data.
 The method I used was to break on calls to `VirtualAlloc` and then watch for a write to the allocated buffer and check for a PE header, the same method that [@struppigel](https://twitter.com/struppigel) describes very well in this youtube video: [https://www.youtube.com/watch?v=h9RiBJ06MAQ](https://www.youtube.com/watch?v=h9RiBJ06MAQ). I will use the same Locky sample that he used, which can be found [here](https://www.hybrid-analysis.com/sample/49a48d4ff1b7973e55d5838f20107620ed808851231256bb94c85f6c80b8ebfc?environmentId=100) if you would like to follow along.
 
@@ -21,7 +21,7 @@ I chose to step out of the function calling `VirtualAlloc` instead of setting a 
 
 The Setup
 -
-Because I dislike developing on Windows and much prefer a unix environment for running and testing my python `r2pipe` script I set up a KVM virtual machine running a 64 bit installation of Windows 7 Professional. To aid in testing I installed my favourite Windows debugger (x64dbg) and radare2. On the host OS I had a python virtual environment with `r2pipe` installed which I used to run the script, connecting over HTTP to an instance of r2 running on the windows VM. You can run the script directly on Windows or use one of the other remote connection methods r2 supports but this is the only setup I tested this in.
+Because I dislike developing on Windows and much prefer a unix environment for running and testing my python r2pipe script I set up a KVM virtual machine running a 64 bit installation of Windows 7 Professional. To aid in testing I installed my favourite Windows debugger (x64dbg) and radare2. On the host OS I had a python virtual environment with `r2pipe` installed which I used to run the script, connecting over HTTP to an instance of r2 running on the windows VM. You can run the script directly on Windows or use one of the other remote connection methods r2 supports but this is the only setup I tested this in.
 
 I started r2 with the following command:
 {% highlight batch %}
