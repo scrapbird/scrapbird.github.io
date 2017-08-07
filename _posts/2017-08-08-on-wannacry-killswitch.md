@@ -3,7 +3,7 @@ layout: post
 title: On why MalwareTech was the first to find the WannaCry killswitch
 ---
 
-A lof of people have been talking about how it is suspicious that MalwareTech was the first person to find the WannaCry killswitch. I thought that the only people thinking this would be those without experience in reverse engineering or malware research but I was very surprised and disappointed to see what Dave Aitel of Immunity, Inc tweeted about the matter:
+A lof of people have been talking about how it is suspicious that MalwareTech was the first person to find the WannaCry killswitch. I thought that the only people thinking this would be those without experience in reverse engineering or malware research, I so was very surprised and disappointed to see what Dave Aitel of Immunity, Inc tweeted about the matter:
 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://t.co/qKBo8jLR27">https://t.co/qKBo8jLR27</a> This is probably not good news...</p>&mdash; daveaitel (@daveaitel) <a href="https://twitter.com/daveaitel/status/893940560968519680">August 5, 2017</a></blockquote>
