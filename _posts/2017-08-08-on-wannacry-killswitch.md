@@ -42,6 +42,6 @@ But wait! I hear you say, he never mentioned using dynamic analysis to look for 
 What you're looking at is the disassembled code of the main (entrypoint) function in the WannaCry malware. Oh.. what's that? That damn domain again!
 
 
-Now, at this point MalwareTech would have dropped everything to check what the domain was doing, realized it wasn't actually registered yet and jumped at the chance to register it before anyone else could as it is a perfect way to track the spread of the Malware. This is where the "accidental" part comes in, it was later revealed that this domain was being used as a killswitch (or as a way to detect sandboxes which use inetsim, but we won't get into that now).
+Now, at this point MalwareTech would have dropped everything to check what the domain was doing, realized it wasn't actually registered yet and jumped at the chance to register it before anyone else could, as it is a perfect way to track the spread of the Malware. This is where the "accidental" part comes in, it was later revealed that this domain was being used as a killswitch (or as a way to detect sandboxes which use inetsim, but we won't get into that now).
 
 But don't take my word for it, why not read it in MalwareTech's [own words](https://www.malwaretech.com/2017/05/how-to-accidentally-stop-a-global-cyber-attacks.html).
