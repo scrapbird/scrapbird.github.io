@@ -24,7 +24,7 @@ First, lets take a look at the hybrid-analysis report on this sample: [https://w
 Oh wow, look at that, it's the killswitch domain!
 
 
-Let's take a different approach and read the rest of the report.. usually an analyst will take a look at the network traffic (either using wireshark or a the report in a quick sandbox run, such as we are doing).
+Let's take a different approach and read the rest of the report.. usually an analyst will take a look at the network traffic (either using wireshark or at the report in a quick sandbox run, such as we are doing).
 
 
 ![network](/images/wannacry-network-report.png "image showing wannacry network report")
