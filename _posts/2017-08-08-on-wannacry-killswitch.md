@@ -6,8 +6,8 @@ title: On why MalwareTech was the first to find the WannaCry killswitch
 A lof of people have been talking about how it is suspicious that MalwareTech was the first person to find the WannaCry killswitch. I thought that the only people thinking this would be those without experience in reverse engineering or malware research, so I was very surprised and disappointed to see what Dave Aitel of Immunity, Inc tweeted about the matter:
 
 
-<center><blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://t.co/qKBo8jLR27">https://t.co/qKBo8jLR27</a> This is probably not good news...</p>&mdash; daveaitel (@daveaitel) <a href="https://twitter.com/daveaitel/status/893940560968519680">August 5, 2017</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></center>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr"><a href="https://t.co/qKBo8jLR27">https://t.co/qKBo8jLR27</a> This is probably not good news...</p>&mdash; daveaitel (@daveaitel) <a href="https://twitter.com/daveaitel/status/893940560968519680">August 5, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 First let's discuss what MalwareTech actually did for work. He was employed by a cybersecurity firm, Kryptos Logic, to track the spread of botnets. The way they did this was to usually try to "sinkhole" the botnet's command and control (C2) servers. There are many ways in which one could do this but they usually involve either registering DGA (Domain Generation Algorithm) domains before the botnet controller could and pointing those domains at his companies sinkhole server, or find a domain the bot connects to which isn't registered yet and register it before the botnet controller does. Once the bots were connecting to the sinkhole server it would track all IP addresses belonging to the botnet, so that affected companies can be notified, and generate reports on the spread of the botnet and how many affected hosts there are.
