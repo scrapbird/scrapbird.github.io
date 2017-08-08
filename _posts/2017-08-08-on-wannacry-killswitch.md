@@ -30,7 +30,7 @@ Let's take a different approach and read the rest of the report.. usually an ana
 ![network](/images/wannacry-network-report.png "image showing wannacry network report")
 
 
-Shit! That domain really isn't hiding itself is it?
+Shit! That domain really isn't hiding itself, is it?
 
 
 But wait! I hear you say, he never mentioned using dynamic analysis to look for a domain. Well okay then, let's take a look at the sample itself and see if we can find it.
