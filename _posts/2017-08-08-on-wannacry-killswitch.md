@@ -45,3 +45,13 @@ What you're looking at is the disassembled code of the main (entrypoint) functio
 Now, at this point MalwareTech would have dropped everything to check what the domain was doing, realized it wasn't actually registered yet and jumped at the chance to register it before anyone else could, as it is a perfect way to track the spread of the Malware. This is where the "accidental" part comes in, it was later revealed that this domain was being used as a killswitch (or as a way to detect sandboxes which use inetsim, but we won't get into that now).
 
 But don't take my word for it, why not read it in MalwareTech's [own words](https://www.malwaretech.com/2017/05/how-to-accidentally-stop-a-global-cyber-attacks.html).
+
+
+2017-10-12: Dr. Vesselin Bontchev informed me of an error in my article, I used a later sample of WannaCry, not the original one:
+
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The original sample is this:<a href="https://t.co/poVyqLnpFz">https://t.co/poVyqLnpFz</a><br><br>Kill switch begins with &quot;iuqer...&quot;.</p>&mdash; Vess (@VessOnSecurity) <a href="https://twitter.com/VessOnSecurity/status/895929544573677568">August 11, 2017</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+The sample I used was the sample who's killswitch was registered by Matthieu Suiche ([@msuiche](https://twitter.com/msuiche)). Although the killswitch is in the same exact place in both samples and just as easily discovered.
