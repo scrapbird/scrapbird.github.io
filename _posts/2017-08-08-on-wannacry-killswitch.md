@@ -46,6 +46,7 @@ Now, at this point MalwareTech would have dropped everything to check what the d
 
 But don't take my word for it, why not read it in MalwareTech's [own words](https://www.malwaretech.com/2017/05/how-to-accidentally-stop-a-global-cyber-attacks.html).
 
+---
 
 2017-10-12: Dr. Vesselin Bontchev informed me of an error in my article, I used a later sample of WannaCry, not the original one:
 
