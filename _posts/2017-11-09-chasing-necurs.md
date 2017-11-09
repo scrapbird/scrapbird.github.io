@@ -57,7 +57,7 @@ The current spam campaign seems to be simply fishing for active email accounts, 
 
 >Hi, honey!
 >The main thing for us is to trust and to hope. When I close my eyes, I see you.
->I send you a lot of kisses. Write me please! My email [REDACTED]
+>I send you a lot of kisses. Write me please! My email elenabirgit918@rambler.ru
 
 ## Future Goals
 
