@@ -21,7 +21,7 @@ First I set up an ESXi host with the 4 VMs detailed above and arranged them into
 
 ![redzone greenzone network diagram](/images/necurs-network-diagram.png "redzone greenzone network diagram")
 
-The router is set up with three network adapters, one connected to the redzone, one connected to the greenzone and the other to the internet (well, it eventually gets there). The SMTP sinkhole has a single adapter connected to the greenzone and the other two hosts have a single adapter which is connected to the red zone. The pfsense router is in charge of handing out IP addresses on both networks. This way all traffic must pass through the router before it gets anywhere else and I have full control.
+The router is set up with three network adapters, one connected to the redzone, one connected to the greenzone and the other to the internet (well, it eventually gets there). The SMTP sinkhole has a single adapter connected to the greenzone and the other two hosts have a single adapter which is connected to the red zone. The pfsense router is in charge of handing out IP addresses on both networks. This way all traffic must pass through the router before it gets anywhere else, and I easily have full control of packet flow.
 
 Additionally, the pfsense router is configured with a NAT rule which will forward all SMTP traffic to my SMTP sinkhole server. This is the only way traffic can pass from greenzone to redzone.
 
@@ -31,13 +31,13 @@ The SMTP sinkhole server is running [mailslurper](https://github.com/mailslurper
 
 ## Monitoring Workstation
 
-The monitoring workstation is pretty simple, just an ubuntu machine running wireshark.
+The monitoring workstation is pretty simple, just an ubuntu machine running wireshark. The only thing that might need to be mentioned here is that the redzone network is configured to allow promiscuous mode so that packet capture is possible.
 
 ## Infected Necurs Host
 
-The infected necurs host is where it got complicated. Necurs contains a few anti VM / anti debugger techniques that made it harder to debug and analyze. Because of my future intel generating plans for the future I didn't want to simply infect a host and let it run, I wanted to be able to instrument the binary to automatically track new modules loaded, configs, email templates etc.
+The infected necurs host is where it got complicated. Necurs contains a few anti VM / anti debugger techniques that made it harder to debug and analyze. Because of my future intel generating plans I didn't want to simply infect a host and let it run, I wanted to be able to instrument the binary to automatically track new modules loaded, configs, email templates etc.
 
-Necurs also contains a rootkit, with a driver and a usermode module that communicate with each other. This makes it harder to debug as well. As such I spent some time reversing the sample to patch out the rootkit, anti vm, and anti debugger code. It isn't perfect and the sample still does create some junk files on the OS but it can be run as a standalone executable with a debugger attached, enabling some pretty cool instrumentation in the future.
+Necurs also contains a rootkit, with a driver and a usermode module that communicate with each other. This makes it harder to debug as well. As such I spent some time reversing the sample to patch out the rootkit, anti VM, and anti debugger code. It isn't perfect and the sample still does create some junk files on the OS but it can be run as a standalone executable with a debugger attached, enabling some pretty cool instrumentation in the future.
 
 ## Patched Sample
 
@@ -45,7 +45,7 @@ I have made this patched sample available to the community for download on Hybri
 
 ## The Outcome
 
-There is still a lot to do but I am very happy with the outcome of my work so far. I am currently capturing SMTP traffic as I type this and the sample is running smoothly. My monitor shows all C2 communication and SMTP traffic flowing from the box as can be seen here:
+There is still a lot to do but I am very happy with the outcome of my work so far. I am currently capturing SMTP traffic as I type this and the sample is running smoothly. My monitor shows all C2 communication and SMTP traffic flowing from the box, as can be seen here:
 
 ![necurs packet capture](/images/necurs-pcap.png "necurs packet capture")
 
@@ -57,7 +57,7 @@ The current spam campaign seems to be simply fishing for active email accounts, 
 
 >Hi, honey!
 >The main thing for us is to trust and to hope. When I close my eyes, I see you.
->I send you a lot of kisses. Write me please! My email <REDACTED>
+>I send you a lot of kisses. Write me please! My email [REDACTED]
 
 ## Future Goals
 
@@ -65,7 +65,7 @@ I have a lot of goals I still would like to achieve, but the main goals are as f
 
 - Automatic detection and reporting of new necurs modules
 - Automatic categorization of email attachments
-- Automatic unpacking of Locky / Dridex payloads
+- Automatic unpacking of Locky / Dridex samples and config extraction
 - Collecting network / file IOCs including DGA domains and the IP addresses the bot will connect to
 
 I will be posting updates to this blog as I progress, this has been an ongoing project for me and I will continue to work on it as time allows (this isn't my day job).
