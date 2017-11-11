@@ -39,6 +39,10 @@ The infected necurs host is where it got complicated. Necurs contains a few anti
 
 Necurs also contains a rootkit, with a driver and a usermode module that communicate with each other. This makes it harder to debug as well. As such I spent some time reversing the sample to patch out the rootkit, anti VM, and anti debugger code. It isn't perfect and the sample still does create some junk files on the OS but it can be run as a standalone executable with a debugger attached, enabling some pretty cool instrumentation in the future.
 
+Here is the necurs sample running as a standalone executable:
+
+![necurs standalone execution](/images/necurs-standalone.png "necurs standalone execution")
+
 ## Patched Sample
 
 I have made this patched sample available to the community for download on Hybrid Analysis and it can be found here: [https://www.hybrid-analysis.com/sample/d288408c2d7f2ad17a92df8a60384ff608224aabd6c43443b7ca3ff3fd61a103?environmentId=100](https://www.hybrid-analysis.com/sample/d288408c2d7f2ad17a92df8a60384ff608224aabd6c43443b7ca3ff3fd61a103?environmentId=100)
