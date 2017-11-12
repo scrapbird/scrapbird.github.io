@@ -3,7 +3,7 @@ layout: post
 title: "Chasing Necurs: The Beginning"
 ---
 
-A few months ago I was trying to decide what my next big side project would be and I decided to set my sights on Necurs. Necurs, for those unfamiliar is a botnet being largely used as a carrier for Locky and Dridex by way of spam campaigns. This was an attractive target for me because of the future potential to generate some really useful threat intel and get brand new samples of Locky and Dridex while they're still hot.
+A few months ago I was trying to decide what my next big side project would be and I decided to set my sights on Necurs. Necurs, for those unfamiliar is a botnet being used largely as a carrier for Locky and Dridex by way of spam campaigns. This was an attractive target for me because of the future potential to generate some really useful threat intel and get brand new samples of Locky and Dridex while they're still hot.
 
 To capture spam from an infected host the general idea was to create a virtual network consisting of the following hosts:
 
