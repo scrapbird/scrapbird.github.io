@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introducing: Sarlacc - an SMTP Sinkhole"
+title: "Introducing: Sarlacc - An SMTP Sinkhole"
 ---
 
 ![sarlacc database](/images/sarlacc-database.png "sarlacc database")
