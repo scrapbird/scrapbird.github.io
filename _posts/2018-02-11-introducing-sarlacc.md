@@ -9,7 +9,7 @@ A few months ago I published a [blog post](/chasing-necurs/) on my necurs tracke
 
 ## Overview
 
-Sarlacc is written in python3.5 using `asyncio`'s async/await model and has a basic plugin system that allows me to extend it to do all of the above features and more. Python was chosen as a language because of the massive number of RE libraries available for performing additional analysis / unpacking etc. It uses postgres as it's relational database and stores all attachments as documents in mongodb. This gives me the option to tag certain samples in the mongodb database and store additional metadata alongside.
+Sarlacc is written in python3.5 using `asyncio` and has a basic plugin system that allows me to extend it to do all of the above features and more. Python was chosen as a language because of the massive number of RE libraries available for performing additional analysis / unpacking etc. It uses postgres as it's relational database and stores all attachments as documents in mongodb. This gives me the option to tag certain samples in the mongodb database and store additional metadata alongside.
 
 It is easy to get up and running with Sarlacc on any system with docker and docker-compose installed, simply run:
 ```
