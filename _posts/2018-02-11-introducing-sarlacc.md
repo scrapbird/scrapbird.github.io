@@ -16,7 +16,7 @@ It is easy to get up and running with Sarlacc on any system with docker and dock
 docker-compose up
 ```
 
-See the README.md for more details.
+See the [`README.md`](https://github.com/scrapbird/sarlacc/blob/master/README.md) for more details.
 
 ## Plugin System
 
