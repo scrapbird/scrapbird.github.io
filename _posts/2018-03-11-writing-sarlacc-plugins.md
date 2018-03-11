@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Writing a plugin for Sarlacc"
+title: "Writing Sarlacc Plugins"
 ---
 
 ![sarlacc malshare](/images/sarlacc-malshare.png "sarlacc log output")
