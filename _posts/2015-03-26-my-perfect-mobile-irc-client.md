@@ -39,7 +39,7 @@ sudo mkdir /home/ircuser
 sudo chown ircuser:users /home/ircuser
 
 # copy our irssi config files over
-sudo cp -R /home/YOURACCOUNT/.irssi /home/ircuser/.irssi
+sudo cp -R ~/.irssi /home/ircuser/.irssi
 # give ircuser access to the files
 sudo chown -R ircuser:users /home/ircuser/.irssi
 {% endhighlight %}
